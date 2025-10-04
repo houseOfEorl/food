@@ -112,6 +112,22 @@ async function insertSampleData() {
 
 // Routes
 
+// Base API route
+app.get('/api', (req, res) => {
+  res.json({ 
+    message: 'Food Ordering API',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      restaurants: '/api/restaurants',
+      restaurant: '/api/restaurants/:id',
+      menu: '/api/restaurants/:id/menu',
+      orders: '/api/orders',
+      search: '/api/search'
+    }
+  });
+});
+
 // Get all restaurants
 app.get('/api/restaurants', (req, res) => {
   (async () => {
